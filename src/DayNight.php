@@ -19,7 +19,7 @@ class DayNight extends PluginBase implements Listener{
 		array_map(function(Command $command) use ($commandMap) {
 			$command->setDescription("DayNight main command instance.");
 			$command->setPermission("daynight.command.use");
-			$command->setUsage("/day [worldName: string] [stopTime: boolean] or /night [worldName: string] [stopTime: boolean]");
+			$command->setUsage("/day [worldName: string] [isStop: bool] or /night [worldName: string] [isStop: bool]");
 			$commandMap->register($this->getName(), $command);
 		}, $commands);
 	}
