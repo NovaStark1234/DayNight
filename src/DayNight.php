@@ -29,8 +29,7 @@ class DayNight extends PluginBase implements Listener{
 		$commandName = strtolower($command->getName());
 		$world = null;
 		$worldManager = $this->getServer()->getWorldManager();
-		$sender instanceof Player ?: ($world = isset($args[0]) ? $args[0] : $worldManager->getDefaultWorld()->getFolderName()); 
-		$world ?? ($world = isset($args[0]) ? $args[0] : $sender->getWorld());
+		$sender instanceof Player ? ($world = isset($args[0]) ? $args[0] : $sender->getWorld()) : ($world = isset($args[0]) ? $args[0] : $worldManager->getDefaultWorld()->getFolderName());
 		if(is_string($world)) $world = $worldManager->getWorldByName($world);
 		$world ?? throw new InvalidCommandSyntaxException();
 		if(!$command->testPermission($sender)) return true;
